@@ -18,7 +18,16 @@ const proyectos = [
   github: 'https://github.com/diegolivad-cell/telus-work-hub',
   emoji: '💼',
   destacado: true,
-},
+  },
+  {
+  nombre: 'Inventario en Tiempo Real',
+  descripcion: 'Sistema de control de stock para restaurantes con base de datos en tiempo real. Permite agregar productos, actualizar cantidades y recibir alertas de stock bajo.',
+  tecnologias: ['React', 'Supabase', 'PostgreSQL', 'Vite', 'Vercel'],
+  link: 'https://inventario-restaurante.vercel.app',
+  github: 'https://github.com/diegolivad-cell/inventario-restaurante',
+  emoji: '📦',
+  destacado: true,
+  },
 ]
 
 const habilidades = [
