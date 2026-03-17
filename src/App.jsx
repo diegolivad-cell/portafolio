@@ -28,6 +28,15 @@ const proyectos = [
   emoji: '📦',
   destacado: true,
   },
+  {
+  nombre: 'NexTech - Tienda Tech',
+  descripcion: 'E-commerce de tecnología estilo Click Guatemala con catálogo, carrito de compras, páginas de producto y diseño responsive.',
+  tecnologias: ['React', 'React Router', 'Vite', 'Vercel'],
+  link: 'https://tech-store-sb99.vercel.app/',
+  github: 'https://github.com/diegolivad-cell/tech-store',
+  emoji: '🛒',
+  destacado: true,
+},
 ]
 
 const habilidades = [
