@@ -37,6 +37,15 @@ const proyectos = [
   emoji: '🛒',
   destacado: true,
 },
+{
+  nombre: 'NexTech API',
+  descripcion: 'API REST para e-commerce con FastAPI y Python. Incluye CRUD de productos, registro/login de usuarios y documentación interactiva automática.',
+  tecnologias: ['Python', 'FastAPI', 'SQLite', 'SQLAlchemy', 'Render'],
+  link: 'https://nextech-api-wwbd.onrender.com/docs',
+  github: 'https://github.com/diegolivad-cell/nextech-api',
+  emoji: '🐍',
+  destacado: true,
+},
 ]
 
 const habilidades = [
