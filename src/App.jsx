@@ -55,6 +55,15 @@ const proyectos = [
   emoji: '🗄️',
   destacado: true,
 },
+{
+  nombre: 'NexTech Admin Dashboard',
+  descripcion: 'Panel de administración empresarial construido con Angular. Incluye dashboard con estadísticas, gestión de productos con CRUD completo y gestión de clientes.',
+  tecnologias: ['Angular', 'TypeScript', 'Angular Material', 'Vercel'],
+  link: 'https://nextech-admin-theta.vercel.app/dashboard',
+  github: 'https://github.com/diegolivad-cell/nextech-admin',
+  emoji: '🔺',
+  destacado: true,
+},
 ]
 
 const habilidades = [
