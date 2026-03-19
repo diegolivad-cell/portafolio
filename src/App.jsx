@@ -72,8 +72,12 @@ const habilidades = [
   { nombre: 'HTML & CSS', nivel: 80, icono: '🎨' },
   { nombre: 'Git & GitHub', nivel: 70, icono: '🐙' },
   { nombre: 'Vercel', nivel: 75, icono: '▲' },
-  { nombre: 'Node.js', nivel: 50, icono: '🟢' },
-]
+  { nombre: 'Node.js', nivel: 70, icono: '🟢' },
+  { nombre: 'Python', nivel: 70, icono: '🐍' },
+  { nombre: 'FastAPI', nivel: 65, icono: '⚡' },
+  { nombre: 'SQL / MSSQL', nivel: 70, icono: '🗄️' },
+  { nombre: 'Angular', nivel: 70, icono: '🔺' },
+];
 
 function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false)
