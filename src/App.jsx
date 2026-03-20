@@ -65,6 +65,23 @@ const proyectos = [
   destacado: true,
 },
 ]
+useEffect(() => {
+  const roles = ['React', 'Angular', 'Python', 'FastAPI', 'SQL Server'];
+  let i = 0;
+  let j = 0;
+  let isDeleting = false;
+  const el = document.getElementById('typed-text');
+
+  const type = () => {
+    if (!el) return;
+    const current = roles[i % roles.length];
+    el.textContent = isDeleting ? current.substring(0, j--) : current.substring(0, j++);
+    if (!isDeleting && j === current.length + 1) { isDeleting = true; setTimeout(type, 1200); return; }
+    if (isDeleting && j === 0) { isDeleting = false; i++; }
+    setTimeout(type, isDeleting ? 50 : 100);
+  };
+  type();
+}, []);
 
 const habilidades = [
   { nombre: 'React', nivel: 75, icono: '⚛️' },
@@ -156,66 +173,76 @@ export default function App() {
 
       {/* ── HERO ── */}
       <section style={{
-        minHeight: '100vh', display: 'flex', alignItems: 'center',
-        padding: '100px 40px 60px', maxWidth: '1100px', margin: '0 auto',
-        gap: '60px', flexWrap: 'wrap',
-      }}>
-        <div style={{ flex: 1, minWidth: '280px' }}>
-          <p style={{ color: '#2563eb', fontSize: '14px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 15px 0' }}>
-            Desarrollador Full Stack
-          </p>
-          <h1 style={{
-            fontFamily: "'DM Serif Display', Georgia, serif",
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 'normal',
-            lineHeight: 1.1, margin: '0 0 20px 0', color: '#0a0a0a',
-            letterSpacing: '-1px'
-          }}>
-            Hola, soy<br />
-            <span style={{ color: '#2563eb' }}>Diego Oliva</span>
-          </h1>
-          <p style={{ color: '#666', fontSize: '18px', maxWidth: '480px', margin: '0 0 35px 0', lineHeight: 1.7, fontWeight: '300' }}>
-            Apasionado por construir experiencias web modernas y funcionales. Especializado en React y el ecosistema JavaScript.
-          </p>
-          <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
-            <button onClick={() => document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })}
-              style={{ backgroundColor: '#2563eb', color: 'white', border: 'none', padding: '13px 28px', borderRadius: '10px', fontSize: '15px', fontWeight: '500', cursor: 'pointer', fontFamily: 'inherit', transition: 'transform 0.2s' }}
-              onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
-              onMouseLeave={e => e.target.style.transform = 'none'}>
-              Ver mis proyectos →
-            </button>
-            <a href="https://github.com/diegolivad-cell" target="_blank" rel="noreferrer"
-              style={{ backgroundColor: 'transparent', color: '#333', border: '1px solid #ddd', padding: '13px 28px', borderRadius: '10px', fontSize: '15px', fontWeight: '500', textDecoration: 'none', transition: 'border-color 0.2s' }}>
-              GitHub 🐙
-            </a>
-          </div>
-        </div>
+  minHeight: '100vh', display: 'flex', alignItems: 'center',
+  padding: '100px 40px 60px', maxWidth: '1100px', margin: '0 auto',
+  gap: '60px', flexWrap: 'wrap'
+}}>
+  <div style={{ flex: 1, minWidth: '280px' }}>
+    <div style={{
+      display: 'inline-flex', alignItems: 'center', gap: '8px',
+      background: '#eff6ff', border: '1px solid #bfdbfe',
+      padding: '6px 14px', borderRadius: '99px', marginBottom: '24px'
+    }}>
+      <span style={{ width: '8px', height: '8px', background: '#22c55e', borderRadius: '50%', display: 'inline-block', animation: 'pulse 2s infinite' }}></span>
+      <span style={{ color: '#2563eb', fontSize: '13px', fontWeight: '600' }}>Disponible para trabajar</span>
+    </div>
 
-        {/* Foto */}
-        <div style={{ position: 'relative' }}>
-          <div style={{
-            width: '280px', height: '280px', borderRadius: '30px',
-            overflow: 'hidden', border: '4px solid white',
-            boxShadow: '0 30px 80px rgba(37,99,235,0.15)',
-            position: 'relative', zIndex: 1
-          }}>
-            <img src="/foto.jpeg" alt="Diego Oliva"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          </div>
-          <div style={{
-            position: 'absolute', bottom: '-15px', right: '-15px',
-            backgroundColor: '#2563eb', borderRadius: '20px',
-            padding: '12px 18px', color: 'white', fontSize: '13px',
-            fontWeight: '500', boxShadow: '0 8px 25px rgba(37,99,235,0.3)', zIndex: 2
-          }}>
-            ⚛️ Full Stack Dev
-          </div>
-          <div style={{
-            position: 'absolute', inset: 0, borderRadius: '30px',
-            backgroundColor: '#2563eb', transform: 'translate(12px, 12px)',
-            zIndex: 0, opacity: 0.1
-          }} />
+    <p style={{ color: '#2563eb', fontSize: '14px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>
+      Desarrollador Full Stack
+    </p>
+
+    <h1 style={{
+      fontFamily: "'DM Serif Display', Georgia, serif",
+      fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 'normal',
+      lineHeight: 1.1, margin: '0 0 16px 0', color: '#0a0a0a',
+      letterSpacing: '-1px'
+    }}>
+      Hola, soy<br />
+      <span style={{ color: '#2563eb' }}>Diego Oliva</span>
+    </h1>
+
+    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px', fontSize: '1.3rem', fontWeight: '600', color: '#0a0a0a' }}>
+      <span>Especializado en</span>
+      <span style={{
+        color: '#2563eb', borderBottom: '2px solid #2563eb',
+        minWidth: '180px', display: 'inline-block'
+      }} id="typed-text"></span>
+    </div>
+
+    <p style={{ color: '#666', fontSize: '17px', maxWidth: '480px', margin: '0 0 35px 0', lineHeight: 1.8 }}>
+      Desarrollador Full Stack de Guatemala con pasión por crear aplicaciones web modernas. 
+      Construyo productos digitales que resuelven problemas reales.
+    </p>
+
+    <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
+      <button
+        onClick={() => document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })}
+        style={{ backgroundColor: '#2563eb', color: 'white', border: 'none', padding: '13px 28px', borderRadius: '8px', fontSize: '15px', fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s' }}
+        onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
+        onMouseLeave={e => e.target.style.transform = 'none'}
+      >
+        Ver mis proyectos →
+      </button>
+      <button
+        onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+        style={{ backgroundColor: 'transparent', color: '#0a0a0a', border: '1.5px solid #ddd', padding: '13px 28px', borderRadius: '8px', fontSize: '15px', fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s' }}
+        onMouseEnter={e => e.target.style.borderColor = '#2563eb'}
+        onMouseLeave={e => e.target.style.borderColor = '#ddd'}
+      >
+        Contactarme
+      </button>
+    </div>
+
+    <div style={{ display: 'flex', gap: '24px', marginTop: '48px', flexWrap: 'wrap' }}>
+      {[['5+', 'Proyectos'], ['3+', 'Tecnologías'], ['100%', 'Dedicación']].map(([num, label]) => (
+        <div key={label}>
+          <div style={{ fontSize: '24px', fontWeight: '800', color: '#0a0a0a' }}>{num}</div>
+          <div style={{ fontSize: '13px', color: '#888' }}>{label}</div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ── SOBRE MÍ ── */}
       <section id="sobre-mí" style={{ backgroundColor: 'white', padding: '80px 40px', borderTop: '1px solid #f0f0f0' }}>
