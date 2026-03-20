@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const proyectos = [
   {
@@ -65,23 +65,7 @@ const proyectos = [
   destacado: true,
 },
 ]
-useEffect(() => {
-  const roles = ['React', 'Angular', 'Python', 'FastAPI', 'SQL Server'];
-  let i = 0;
-  let j = 0;
-  let isDeleting = false;
-  const el = document.getElementById('typed-text');
 
-  const type = () => {
-    if (!el) return;
-    const current = roles[i % roles.length];
-    el.textContent = isDeleting ? current.substring(0, j--) : current.substring(0, j++);
-    if (!isDeleting && j === current.length + 1) { isDeleting = true; setTimeout(type, 1200); return; }
-    if (isDeleting && j === 0) { isDeleting = false; i++; }
-    setTimeout(type, isDeleting ? 50 : 100);
-  };
-  type();
-}, []);
 
 const habilidades = [
   { nombre: 'React', nivel: 75, icono: '⚛️' },
@@ -96,7 +80,7 @@ const habilidades = [
   { nombre: 'Angular', nivel: 70, icono: '🔺' },
 ];
 
-function Navbar() {
+function Navbar({ darkMode, toggleDark }) {
   const [menuAbierto, setMenuAbierto] = useState(false)
   const links = ['Sobre mí', 'Proyectos', 'Habilidades', 'Contacto']
 
@@ -127,6 +111,17 @@ function Navbar() {
             {link}
           </button>
         ))}
+        <button onClick={toggleDark} style={{
+        background: darkMode ? '#1e293b' : '#f1f5f9',
+        border: '1px solid #ddd',
+        borderRadius: '8px',
+        padding: '8px 14px',
+        cursor: 'pointer',
+        fontSize: '18px',
+        marginRight: '8px'
+}}>
+  {darkMode ? '☀️' : '🌙'}
+</button>
         <a href="mailto:diegoliva@live.com" style={{
           backgroundColor: '#2563eb', color: 'white', textDecoration: 'none',
           padding: '8px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: '500',
@@ -164,12 +159,49 @@ function Navbar() {
 export default function App() {
   const [formEnviado, setFormEnviado] = useState(false)
   const [form, setForm] = useState({ nombre: '', email: '', mensaje: '' })
+  const [darkMode, setDarkMode] = useState(false)
+
+    useEffect(() => {
+    const roles = ['React', 'Angular', 'Python', 'FastAPI', 'SQL Server'];
+    let i = 0;
+    let j = 0;
+    let isDeleting = false;
+    const el = document.getElementById('typed-text');
+
+        const type = () => {
+      if (!el) return;
+      const current = roles[i % roles.length];
+      el.textContent = isDeleting ? current.substring(0, j--) : current.substring(0, j++);
+      if (!isDeleting && j === current.length + 1) { isDeleting = true; setTimeout(type, 1200); return; }
+      if (isDeleting && j === 0) { isDeleting = false; i++; }
+      setTimeout(type, isDeleting ? 50 : 100);
+    };
+    type();
+  }, []);
+
+useEffect(() => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+  setTimeout(() => {
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  }, 100);
+
+  return () => observer.disconnect();
+}, []);
 
   return (
-    <div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", backgroundColor: '#fafafa', color: '#111', lineHeight: 1.6 }}>
+    <div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", backgroundColor: darkMode ? '#0f172a' : '#fafafa', color: '#111', lineHeight: 1.6 }}>
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
 
-      <Navbar />
+      <Navbar darkMode={darkMode} toggleDark={() => setDarkMode(!darkMode)} />
 
       {/* ── HERO ── */}
       <section style={{
@@ -242,10 +274,35 @@ export default function App() {
       ))}
     </div>
   </div>
+  <div style={{
+  flex: '0 0 auto',
+  width: '320px',
+  height: '380px',
+  borderRadius: '24px',
+  overflow: 'hidden',
+  border: '4px solid #e2e8f0',
+  boxShadow: '0 20px 60px rgba(0,0,0,0.12)',
+  position: 'relative'
+}}>
+  <img 
+    src="/foto.jpeg" 
+    alt="Diego Oliva"
+    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
+  />
+  <div style={{
+    position: 'absolute', bottom: '16px', left: '16px',
+    background: 'white', borderRadius: '10px', padding: '8px 14px',
+    display: 'flex', alignItems: 'center', gap: '8px',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+  }}>
+    <span style={{ width: '8px', height: '8px', background: '#22c55e', borderRadius: '50%', display: 'inline-block' }}></span>
+    <span style={{ fontSize: '12px', fontWeight: '600', color: '#1e293b' }}>Disponible</span>
+  </div>
+</div>
 </section>
 
       {/* ── SOBRE MÍ ── */}
-      <section id="sobre-mí" style={{ backgroundColor: 'white', padding: '80px 40px', borderTop: '1px solid #f0f0f0' }}>
+      <section id="sobre-mí" className="fade-in" style={{ backgroundColor: 'white', padding: '80px 40px', borderTop: '1px solid #f0f0f0' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <p style={{ color: '#2563eb', fontSize: '13px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 10px 0' }}>Sobre mí</p>
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '2.2rem', fontWeight: 'normal', margin: '0 0 25px 0', color: '#0a0a0a' }}>
@@ -269,7 +326,7 @@ export default function App() {
       </section>
 
       {/* ── PROYECTOS ── */}
-      <section id="proyectos" style={{ padding: '80px 40px', maxWidth: '1100px', margin: '0 auto' }}>
+      <section id="proyectos" className="fade-in" style={{ padding: '80px 40px', maxWidth: '1100px', margin: '0 auto' }}>
         <p style={{ color: '#2563eb', fontSize: '13px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 10px 0' }}>Proyectos</p>
         <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '2.2rem', fontWeight: 'normal', margin: '0 0 40px 0', color: '#0a0a0a' }}>
           Lo que he construido
@@ -329,7 +386,7 @@ export default function App() {
       </section>
 
       {/* ── HABILIDADES ── */}
-      <section id="habilidades" style={{ backgroundColor: 'white', padding: '80px 40px', borderTop: '1px solid #f0f0f0' }}>
+      <section id="habilidades" className="fade-in" style={{ backgroundColor: 'white', padding: '80px 40px', borderTop: '1px solid #f0f0f0' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <p style={{ color: '#2563eb', fontSize: '13px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 10px 0' }}>Habilidades</p>
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '2.2rem', fontWeight: 'normal', margin: '0 0 40px 0', color: '#0a0a0a' }}>
@@ -356,7 +413,7 @@ export default function App() {
       </section>
 
       {/* ── CONTACTO ── */}
-      <section id="contacto" style={{ padding: '80px 40px', maxWidth: '600px', margin: '0 auto' }}>
+      <section id="contacto" className="fade-in" style={{ padding: '80px 40px', maxWidth: '600px', margin: '0 auto' }}>
         <p style={{ color: '#2563eb', fontSize: '13px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 10px 0' }}>Contacto</p>
         <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '2.2rem', fontWeight: 'normal', margin: '0 0 10px 0', color: '#0a0a0a' }}>
           ¡Hablemos!
