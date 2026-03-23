@@ -380,9 +380,9 @@ export default function App() {
                       Ver proyecto →
                     </a>
                   ) : (
-                    <span style={{ flex: 1, backgroundColor: tema.bgSecundario, color: tema.texto, padding: '9px', borderRadius: '8px', fontSize: '13px', fontWeight: '500', textAlign: 'center' }}>
-                      Solo local
-                    </span>
+                  <a href={p.github} target="_blank" rel="noreferrer" style={{ flex: 1, backgroundColor: tema.bgSecundario, color: tema.texto, textDecoration: 'none', padding: '9px', borderRadius: '8px', fontSize: '13px', fontWeight: '500', textAlign: 'center' }}>
+                  Ver repositorio →
+                  </a>
                   )}
                   <a href={p.github} target="_blank" rel="noreferrer" style={{ flex: 1, backgroundColor: darkMode ? '#334155' : '#f5f5f5', color: darkMode ? '#e2e8f0' : '#333', textDecoration: 'none', padding: '9px', borderRadius: '8px', fontSize: '13px', fontWeight: '500', textAlign: 'center' }}>
                     GitHub 🐙
