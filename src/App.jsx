@@ -70,9 +70,9 @@ const proyectos = [
 {
   nombre: "EmpleadosCRUD",
   descripcion: "Sistema de gestión de empleados con ASP.NET Core MVC y SQL Server. Incluye CRUD completo, búsqueda por nombre/puesto y filtro por departamento.",
-  tags: ["C#", ".NET MVC", "MSSQL", "SQL Server"],
+  tecnologias: ["C#", ".NET MVC", "MSSQL", "SQL Server"],
   github: "https://github.com/diegolivad-cell/EmpleadosCRUD",
-  demo: null,
+  link: null,
   destacado: true,
   emoji: "👥"
 },
@@ -376,7 +376,7 @@ useEffect(() => {
                 <p style={{ color: '#777', fontSize: '13px', margin: '0 0 15px 0', lineHeight: 1.6 }}>{p.descripcion}</p>
 
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '18px' }}>
-                  {p.tecnologias.map(t => (
+                  {(p.tecnologias || []).map(t => (
                     <span key={t} style={{ backgroundColor: '#eff6ff', color: '#2563eb', fontSize: '12px', padding: '3px 10px', borderRadius: '20px', fontWeight: '500' }}>
                       {t}
                     </span>
