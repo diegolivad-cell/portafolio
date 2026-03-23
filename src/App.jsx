@@ -435,48 +435,32 @@ export default function App() {
       </section>
 
       {/* ── CONTACTO ── */}
-      <section id="contacto" data-aos="fade-up" style={{ padding: '80px 40px', maxWidth: '600px', margin: '0 auto' }}>
-        <p style={{ color: '#2563eb', fontSize: '13px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 10px 0' }}>Contacto</p>
-        <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '2.2rem', fontWeight: 'normal', margin: '0 0 10px 0', color: tema.titulo }}>
-          ¡Hablemos!
-        </h2>
-        <p style={{ color: tema.texto, margin: '0 0 35px 0' }}>¿Tienes un proyecto en mente o quieres contactarme? Escríbeme.</p>
+<section id="contacto" data-aos="fade-up" style={{ padding: '80px 40px', maxWidth: '600px', margin: '0 auto' }}>
+  <p style={{ color: '#2563eb', fontSize: '13px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 10px 0' }}>Contacto</p>
+  <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '2.2rem', fontWeight: 'normal', margin: '0 0 10px 0', color: tema.titulo }}>
+    ¡Hablemos!
+  </h2>
+  <p style={{ color: tema.texto, margin: '0 0 35px 0' }}>¿Tienes un proyecto en mente o quieres contactarme? Escríbeme.</p>
 
-        {formEnviado ? (
-          <div style={{ textAlign: 'center', padding: '40px', backgroundColor: tema.card, borderRadius: '16px', border: `1px solid ${tema.cardBorde}` }}>
-            <div style={{ fontSize: '50px', marginBottom: '15px' }}>🎉</div>
-            <h3 style={{ color: '#2563eb', margin: '0 0 10px 0' }}>¡Mensaje enviado!</h3>
-            <p style={{ color: tema.texto, margin: 0 }}>Te responderé pronto a <strong>{form.email}</strong></p>
-          </div>
-        ) : (
-          <div style={{ backgroundColor: tema.card, borderRadius: '16px', border: `1px solid ${tema.cardBorde}`, padding: '35px', display: 'flex', flexDirection: 'column', gap: '18px' }}>
-            {[['nombre', 'Tu nombre', 'text'], ['email', 'tu@email.com', 'email']].map(([key, placeholder, type]) => (
-              <div key={key}>
-                <label style={{ fontSize: '13px', fontWeight: '500', color: tema.labelColor, display: 'block', marginBottom: '6px', textTransform: 'capitalize' }}>{key}</label>
-                <input type={type} placeholder={placeholder} value={form[key]}
-                  onChange={e => setForm({ ...form, [key]: e.target.value })}
-                  style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: `1px solid ${tema.inputBorde}`, fontSize: '14px', fontFamily: 'inherit', outline: 'none', boxSizing: 'border-box', transition: 'border-color 0.2s', backgroundColor: tema.inputBg, color: tema.titulo }}
-                  onFocus={e => e.target.style.borderColor = '#2563eb'}
-                  onBlur={e => e.target.style.borderColor = tema.inputBorde} />
-              </div>
-            ))}
-            <div>
-              <label style={{ fontSize: '13px', fontWeight: '500', color: tema.labelColor, display: 'block', marginBottom: '6px' }}>Mensaje</label>
-              <textarea placeholder="Cuéntame sobre tu proyecto..." value={form.mensaje}
-                onChange={e => setForm({ ...form, mensaje: e.target.value })}
-                style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: `1px solid ${tema.inputBorde}`, fontSize: '14px', fontFamily: 'inherit', outline: 'none', resize: 'vertical', height: '120px', boxSizing: 'border-box', backgroundColor: tema.inputBg, color: tema.titulo }}
-                onFocus={e => e.target.style.borderColor = '#2563eb'}
-                onBlur={e => e.target.style.borderColor = tema.inputBorde} />
-            </div>
-            <button onClick={() => { if (form.nombre && form.email && form.mensaje) setFormEnviado(true) }}
-              style={{ backgroundColor: '#2563eb', color: 'white', border: 'none', padding: '13px', borderRadius: '10px', fontSize: '15px', fontWeight: '500', cursor: 'pointer', fontFamily: 'inherit', transition: 'transform 0.2s' }}
-              onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
-              onMouseLeave={e => e.target.style.transform = 'none'}>
-              Enviar mensaje ✉️
-            </button>
-          </div>
-        )}
-      </section>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <a href="https://wa.me/50258041128" target="_blank" rel="noreferrer" style={{
+      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px',
+      backgroundColor: '#25D366', color: 'white', textDecoration: 'none',
+      padding: '16px 28px', borderRadius: '12px', fontSize: '16px', fontWeight: '600'
+    }}>
+      <span style={{ fontSize: '24px' }}>💬</span>
+      Escríbeme por WhatsApp
+    </a>
+    <a href="mailto:diegoliva@live.com" style={{
+      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px',
+      backgroundColor: '#2563eb', color: 'white', textDecoration: 'none',
+      padding: '16px 28px', borderRadius: '12px', fontSize: '16px', fontWeight: '600'
+    }}>
+      <span style={{ fontSize: '24px' }}>✉️</span>
+      Enviarme un correo
+    </a>
+  </div>
+</section>
 
       {/* ── FOOTER ── */}
       <footer style={{ backgroundColor: darkMode ? '#020617' : '#0a0a0a', color: '#666', textAlign: 'center', padding: '30px', fontSize: '13px' }}>
