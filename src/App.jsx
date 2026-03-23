@@ -166,9 +166,10 @@ function Navbar({ darkMode, toggleDark, tema }) {
       {/* Menú móvil */}
       {menuAbierto && (
         <div style={{
-          position: 'fixed', top: '64px', left: 0, right: 0,
-          backgroundColor: tema.card, borderBottom: `1px solid ${tema.borde}`,
-          padding: '20px 40px', display: 'flex', flexDirection: 'column', gap: '15px'
+        position: 'fixed', top: '64px', left: 0, right: 0,
+        backgroundColor: tema.card, borderBottom: `1px solid ${tema.borde}`,
+        padding: '20px 40px', display: 'flex', flexDirection: 'column', gap: '15px',
+        zIndex: 200, overflowY: 'auto', maxHeight: 'calc(100vh - 64px)'
         }}>
           {links.map(link => (
             <button key={link} onClick={() => scrollTo(link.toLowerCase().replace(' ', '-'))}
@@ -176,6 +177,19 @@ function Navbar({ darkMode, toggleDark, tema }) {
               {link}
             </button>
           ))}
+          <button onClick={toggleDark} style={{
+      background: darkMode ? '#1e293b' : '#f1f5f9',
+      border: `1px solid ${tema.borde}`,
+      borderRadius: '8px',
+      padding: '10px 16px',
+      cursor: 'pointer',
+      fontSize: '16px',
+      marginTop: '5px',
+      width: 'fit-content',
+      fontFamily: 'inherit'
+    }}>
+      {darkMode ? '☀️ Modo claro' : '🌙 Modo oscuro'}
+    </button>
         </div>
       )}
     </nav>
