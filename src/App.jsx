@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 
 const proyectos = [
   {
@@ -160,6 +163,9 @@ export default function App() {
   const [formEnviado, setFormEnviado] = useState(false)
   const [form, setForm] = useState({ nombre: '', email: '', mensaje: '' })
   const [darkMode, setDarkMode] = useState(false)
+  useEffect(() => {
+  AOS.init({ duration: 800, once: true });
+}, []);
 
     useEffect(() => {
     const roles = ['React', 'Angular', 'Python', 'FastAPI', 'SQL Server'];
@@ -223,7 +229,7 @@ useEffect(() => {
       Desarrollador Full Stack
     </p>
 
-    <h1 style={{
+    <h1 data-aos="fade-down" style={{
       fontFamily: "'DM Serif Display', Georgia, serif",
       fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 'normal',
       lineHeight: 1.1, margin: '0 0 16px 0', color: '#0a0a0a',
@@ -233,7 +239,7 @@ useEffect(() => {
       <span style={{ color: '#2563eb' }}>Diego Oliva</span>
     </h1>
 
-    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px', fontSize: '1.3rem', fontWeight: '600', color: '#0a0a0a' }}>
+    <div data-aos="fade-up" data-aos-delay="200" style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px', fontSize: '1.3rem', fontWeight: '600', color: '#0a0a0a' }}>
       <span>Especializado en</span>
       <span style={{
         color: '#2563eb', borderBottom: '2px solid #2563eb',
@@ -241,13 +247,15 @@ useEffect(() => {
       }} id="typed-text"></span>
     </div>
 
-    <p style={{ color: '#666', fontSize: '17px', maxWidth: '480px', margin: '0 0 35px 0', lineHeight: 1.8 }}>
+    <p data-aos="fade-up" data-aos-delay="400" style={{ color: '#666', fontSize: '17px', maxWidth: '480px', margin: '0 0 35px 0', lineHeight: 1.8 }}>
       Desarrollador Full Stack de Guatemala con pasión por crear aplicaciones web modernas. 
       Construyo productos digitales que resuelven problemas reales.
     </p>
 
     <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
       <button
+        data-aos="fade-up"
+        data-aos-delay="600"
         onClick={() => document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })}
         style={{ backgroundColor: '#2563eb', color: 'white', border: 'none', padding: '13px 28px', borderRadius: '8px', fontSize: '15px', fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s' }}
         onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
@@ -256,6 +264,8 @@ useEffect(() => {
         Ver mis proyectos →
       </button>
       <button
+      data-aos="fade-up"
+      data-aos-delay="800"
         onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
         style={{ backgroundColor: 'transparent', color: '#0a0a0a', border: '1.5px solid #ddd', padding: '13px 28px', borderRadius: '8px', fontSize: '15px', fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s' }}
         onMouseEnter={e => e.target.style.borderColor = '#2563eb'}
@@ -302,7 +312,7 @@ useEffect(() => {
 </section>
 
       {/* ── SOBRE MÍ ── */}
-      <section id="sobre-mí" className="fade-in" style={{ backgroundColor: 'white', padding: '80px 40px', borderTop: '1px solid #f0f0f0' }}>
+      <section id="sobre-mí" data-aos="fade-up" style={{ backgroundColor: 'white', padding: '80px 40px', borderTop: '1px solid #f0f0f0' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <p style={{ color: '#2563eb', fontSize: '13px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 10px 0' }}>Sobre mí</p>
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '2.2rem', fontWeight: 'normal', margin: '0 0 25px 0', color: '#0a0a0a' }}>
@@ -326,7 +336,7 @@ useEffect(() => {
       </section>
 
       {/* ── PROYECTOS ── */}
-      <section id="proyectos" className="fade-in" style={{ padding: '80px 40px', maxWidth: '1100px', margin: '0 auto' }}>
+      <section id="proyectos" data-aos="fade-up" style={{ padding: '80px 40px', maxWidth: '1100px', margin: '0 auto' }}>
         <p style={{ color: '#2563eb', fontSize: '13px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 10px 0' }}>Proyectos</p>
         <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '2.2rem', fontWeight: 'normal', margin: '0 0 40px 0', color: '#0a0a0a' }}>
           Lo que he construido
@@ -334,7 +344,7 @@ useEffect(() => {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '25px' }}>
           {proyectos.map(p => (
-            <div key={p.nombre} style={{
+            <div key={p.nombre} data-aos="fade-up" style={{
               backgroundColor: 'white', borderRadius: '16px', overflow: 'hidden',
               border: '1px solid #ebebeb', transition: 'transform 0.3s, box-shadow 0.3s',
               cursor: 'default'
@@ -386,7 +396,7 @@ useEffect(() => {
       </section>
 
       {/* ── HABILIDADES ── */}
-      <section id="habilidades" className="fade-in" style={{ backgroundColor: 'white', padding: '80px 40px', borderTop: '1px solid #f0f0f0' }}>
+      <section id="habilidades" data-aos="fade-up" style={{ backgroundColor: 'white', padding: '80px 40px', borderTop: '1px solid #f0f0f0' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <p style={{ color: '#2563eb', fontSize: '13px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 10px 0' }}>Habilidades</p>
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '2.2rem', fontWeight: 'normal', margin: '0 0 40px 0', color: '#0a0a0a' }}>
@@ -413,7 +423,7 @@ useEffect(() => {
       </section>
 
       {/* ── CONTACTO ── */}
-      <section id="contacto" className="fade-in" style={{ padding: '80px 40px', maxWidth: '600px', margin: '0 auto' }}>
+      <section id="contacto" data-aos="fade-up" style={{ padding: '80px 40px', maxWidth: '600px', margin: '0 auto' }}>
         <p style={{ color: '#2563eb', fontSize: '13px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 10px 0' }}>Contacto</p>
         <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '2.2rem', fontWeight: 'normal', margin: '0 0 10px 0', color: '#0a0a0a' }}>
           ¡Hablemos!
