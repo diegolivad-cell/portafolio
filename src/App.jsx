@@ -328,10 +328,10 @@ useEffect(() => {
             Un poco sobre mí
           </h2>
           <p style={{ color: '#555', fontSize: '17px', lineHeight: 1.8, margin: '0 0 20px 0' }}>
-            Soy Diego Oliva, desarrollador Full Stack de Guatemala con pasión por crear aplicaciones web modernas y funcionales. Comencé mi camino en el desarrollo hace 10 años y desde entonces he construido proyectos reales usando React, JavaScript y las herramientas más modernas del ecosistema web.
+          Soy Diego Oliva, Desarrollador Full Stack de Guatemala con pasión por crear aplicaciones web modernas y funcionales. He construido proyectos reales trabajando con tecnologías frontend como React, Angular y TypeScript, y en el backend con Python (FastAPI), C# (.NET MVC) y Node.js. También manejo bases de datos relacionales como SQL Server, PostgreSQL y SQLite, así como servicios en la nube como Supabase y Vercel.
           </p>
           <p style={{ color: '#555', fontSize: '17px', lineHeight: 1.8, margin: 0 }}>
-            Me apasiona aprender constantemente y convertir ideas en productos digitales que resuelvan problemas reales. Actualmente busco oportunidades para seguir creciendo como desarrollador.
+          Me apasiona aprender constantemente y convertir ideas en productos digitales que resuelvan problemas reales. Actualmente busco oportunidades para seguir creciendo como desarrollador.
           </p>
 
           <div style={{ display: 'flex', gap: '30px', marginTop: '35px', flexWrap: 'wrap' }}>
