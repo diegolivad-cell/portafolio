@@ -67,6 +67,15 @@ const proyectos = [
   emoji: '🔺',
   destacado: true,
 },
+{
+  nombre: "EmpleadosCRUD",
+  descripcion: "Sistema de gestión de empleados con ASP.NET Core MVC y SQL Server. Incluye CRUD completo, búsqueda por nombre/puesto y filtro por departamento.",
+  tags: ["C#", ".NET MVC", "MSSQL", "SQL Server"],
+  github: "https://github.com/diegolivad-cell/EmpleadosCRUD",
+  demo: null,
+  destacado: true,
+  emoji: "👥"
+},
 ]
 
 
