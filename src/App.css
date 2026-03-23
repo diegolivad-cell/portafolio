@@ -182,3 +182,15 @@
     border-right-color: var(--border);
   }
 }
+.nav-hamburguesa {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none !important;
+  }
+  .nav-hamburguesa {
+    display: block;
+  }
+}
