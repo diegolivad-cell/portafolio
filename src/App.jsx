@@ -53,7 +53,7 @@ const proyectos = [
     nombre: 'NexTech DB',
     descripcion: 'Sistema de gestión de inventario y ventas con Microsoft SQL Server. Incluye tablas relacionales, Views, Stored Procedures, Triggers e historial de stock automático.',
     tecnologias: ['MSSQL', 'SQL Server', 'T-SQL', 'SSMS'],
-    link: 'https://github.com/diegolivad-cell/nextech-db',
+    link: null,
     github: 'https://github.com/diegolivad-cell/nextech-db',
     emoji: '🗄️',
     destacado: true,
