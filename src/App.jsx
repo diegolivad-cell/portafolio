@@ -79,18 +79,32 @@ const proyectos = [
 ]
 
 
-const habilidades = [
-  { nombre: 'React', nivel: 75, icono: '⚛️' },
-  { nombre: 'JavaScript', nivel: 70, icono: '🟨' },
-  { nombre: 'HTML & CSS', nivel: 80, icono: '🎨' },
-  { nombre: 'Git & GitHub', nivel: 70, icono: '🐙' },
-  { nombre: 'Vercel', nivel: 75, icono: '▲' },
-  { nombre: 'Node.js', nivel: 70, icono: '🟢' },
-  { nombre: 'Python', nivel: 70, icono: '🐍' },
-  { nombre: 'FastAPI', nivel: 65, icono: '⚡' },
-  { nombre: 'SQL / MSSQL', nivel: 70, icono: '🗄️' },
-  { nombre: 'Angular', nivel: 70, icono: '🔺' },
-];
+const habilidades = {
+  Frontend: [
+    { nombre: 'React', icono: '⚛️' },
+    { nombre: 'Angular', icono: '🔺' },
+    { nombre: 'TypeScript', icono: '🔷' },
+    { nombre: 'JavaScript', icono: '🟨' },
+    { nombre: 'HTML & CSS', icono: '🎨' },
+  ],
+  Backend: [
+    { nombre: 'C# / .NET MVC', icono: '🟣' },
+    { nombre: 'Python / FastAPI', icono: '🐍' },
+    { nombre: 'Node.js', icono: '🟢' },
+  ],
+  'Bases de datos': [
+    { nombre: 'SQL Server / MSSQL', icono: '🗄️' },
+    { nombre: 'PostgreSQL', icono: '🐘' },
+    { nombre: 'Supabase', icono: '⚡' },
+    { nombre: 'SQLite', icono: '💾' },
+  ],
+  Tools: [
+    { nombre: 'Git & GitHub', icono: '🐙' },
+    { nombre: 'Vercel', icono: '▲' },
+    { nombre: 'Visual Studio', icono: '🟣' },
+    { nombre: 'VS Code', icono: '💙' },
+  ],
+};
 
 function Navbar({ darkMode, toggleDark }) {
   const [menuAbierto, setMenuAbierto] = useState(false)
@@ -405,31 +419,42 @@ useEffect(() => {
       </section>
 
       {/* ── HABILIDADES ── */}
-      <section id="habilidades" data-aos="fade-up" style={{ backgroundColor: 'white', padding: '80px 40px', borderTop: '1px solid #f0f0f0' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <p style={{ color: '#2563eb', fontSize: '13px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 10px 0' }}>Habilidades</p>
-          <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '2.2rem', fontWeight: 'normal', margin: '0 0 40px 0', color: '#0a0a0a' }}>
-            Tecnologías que manejo
-          </h2>
+<section id="habilidades" data-aos="fade-up" style={{ backgroundColor: 'white', padding: '80px 40px', borderTop: '1px solid #f0f0f0' }}>
+  <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+    <p style={{ color: '#2563eb', fontSize: '13px', fontWeight: '500', letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 10px 0' }}>Habilidades</p>
+    <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '2.2rem', fontWeight: 'normal', margin: '0 0 40px 0', color: '#0a0a0a' }}>
+      Tecnologías que manejo
+    </h2>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            {habilidades.map(h => (
-              <div key={h.nombre}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '15px', fontWeight: '500', color: '#333' }}>{h.icono} {h.nombre}</span>
-                  <span style={{ fontSize: '13px', color: '#999' }}>{h.nivel}%</span>
-                </div>
-                <div style={{ backgroundColor: '#f0f0f0', borderRadius: '10px', height: '8px', overflow: 'hidden' }}>
-                  <div style={{
-                    backgroundColor: '#2563eb', height: '100%', borderRadius: '10px',
-                    width: `${h.nivel}%`, transition: 'width 1s ease'
-                  }} />
-                </div>
-              </div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+      {Object.entries(habilidades).map(([categoria, items]) => (
+        <div key={categoria}>
+          <h3 style={{ fontSize: '13px', fontWeight: '600', color: '#2563eb', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '14px' }}>
+            {categoria}
+          </h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+            {items.map(h => (
+              <span key={h.nombre} style={{
+                backgroundColor: '#f8faff',
+                border: '1px solid #dbeafe',
+                color: '#1e40af',
+                padding: '8px 16px',
+                borderRadius: '999px',
+                fontSize: '14px',
+                fontWeight: '500',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}>
+                {h.icono} {h.nombre}
+              </span>
             ))}
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ── CONTACTO ── */}
       <section id="contacto" data-aos="fade-up" style={{ padding: '80px 40px', maxWidth: '600px', margin: '0 auto' }}>
