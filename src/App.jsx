@@ -477,7 +477,7 @@ export default function App() {
 </section>
 
       {/* ── FOOTER ── */}
-<footer style={{ backgroundColor: darkMode ? '#020617' : '#0a0a0a', color: '#666', textAlign: 'center', padding: '30px', fontSize: '13px' }}>
+      <footer style={{ backgroundColor: darkMode ? '#020617' : '#0a0a0a', color: '#666', textAlign: 'center', padding: '30px', fontSize: '13px' }}>
   <p style={{ margin: '0 0 8px 0', color: '#fff', fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '18px' }}>
     Diego<span style={{ color: '#2563eb' }}>.</span>
   </p>
@@ -502,4 +502,7 @@ export default function App() {
     </a>
   </div>
   <p style={{ margin: 0 }}>© 2026 Diego Oliva · Desarrollado con React ⚛️</p>
-</footer>
+      </footer>
+    </div>
+  )
+}
