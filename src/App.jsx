@@ -477,12 +477,29 @@ export default function App() {
 </section>
 
       {/* ── FOOTER ── */}
-      <footer style={{ backgroundColor: darkMode ? '#020617' : '#0a0a0a', color: '#666', textAlign: 'center', padding: '30px', fontSize: '13px' }}>
-        <p style={{ margin: '0 0 8px 0', color: '#fff', fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '18px' }}>
-          Diego<span style={{ color: '#2563eb' }}>.</span>
-        </p>
-        <p style={{ margin: 0 }}>© 2026 Diego Oliva · Desarrollado con React ⚛️</p>
-      </footer>
-    </div>
-  )
-}
+<footer style={{ backgroundColor: darkMode ? '#020617' : '#0a0a0a', color: '#666', textAlign: 'center', padding: '30px', fontSize: '13px' }}>
+  <p style={{ margin: '0 0 8px 0', color: '#fff', fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '18px' }}>
+    Diego<span style={{ color: '#2563eb' }}>.</span>
+  </p>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', margin: '12px 0' }}>
+    <a href="https://github.com/diegolivad-cell" target="_blank" rel="noreferrer"
+      style={{ color: '#666', textDecoration: 'none', fontSize: '13px', transition: 'color 0.2s' }}
+      onMouseEnter={e => e.target.style.color = '#fff'}
+      onMouseLeave={e => e.target.style.color = '#666'}>
+      GitHub 🐙
+    </a>
+    <a href="https://www.linkedin.com/in/diego-oliva-058590233" target="_blank" rel="noreferrer"
+      style={{ color: '#666', textDecoration: 'none', fontSize: '13px', transition: 'color 0.2s' }}
+      onMouseEnter={e => e.target.style.color = '#0a66c2'}
+      onMouseLeave={e => e.target.style.color = '#666'}>
+      LinkedIn 💼
+    </a>
+    <a href="mailto:diegoliva@live.com"
+      style={{ color: '#666', textDecoration: 'none', fontSize: '13px', transition: 'color 0.2s' }}
+      onMouseEnter={e => e.target.style.color = '#fff'}
+      onMouseLeave={e => e.target.style.color = '#666'}>
+      Email ✉️
+    </a>
+  </div>
+  <p style={{ margin: 0 }}>© 2026 Diego Oliva · Desarrollado con React ⚛️</p>
+</footer>
