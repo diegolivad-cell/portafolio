@@ -76,6 +76,15 @@ const proyectos = [
     destacado: true,
     emoji: '👥',
   },
+  {
+    nombre: 'SONIQ Landing Page',
+    descripcion: 'Landing page animada al estilo FlipaClip para una app ficticia de creación musical con IA. Incluye scroll animations, contadores animados y marquee infinito.',
+    tecnologias: ['HTML', 'CSS', 'JavaScript', 'Vercel'],
+    link: 'https://soniq-landing.vercel.app',
+    github: 'https://github.com/diegolivad-cell/soniq-landing',
+    emoji: '🎵',
+    destacado: true,
+},
 ]
 
 const habilidades = {
